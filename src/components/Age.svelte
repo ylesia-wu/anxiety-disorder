@@ -37,22 +37,29 @@
           .domain([0, Math.max(10, d3.max(data, d => d.value))])
           .range([margin.left, width - margin.right]);
       
-      d3.select(yAxis).call(d3.axisLeft(yScale)).attr('font-family', 'Verdana');
+      d3.select(yAxis)
+          .call(d3.axisLeft(yScale))
+          .attr('stroke-width', 2)
+          .attr('font-family', 'Verdana')
+          .selectAll('.tick line')
+          .attr('font-size', 12);
       
       d3.select(xAxis)
           .call(d3.axisBottom(xScale))
+          .attr('stroke-width', 2)
           .selectAll('.tick > text')
           .attr('y', 0)
           .attr('dy', '0.35em')
           .attr('dx', '-1em')
           .attr('text-anchor', 'end')
           .attr('font-family', 'Verdana')
-          .attr('transform', 'rotate(-90)');}
+          .attr('font-size', 12)
+          .attr('transform', 'rotate(-90)')
+          ;}
 
     let highlightedBar = null;
 
     function handleHover(i) {
-        console.log('detected')
         highlightedBar = i;
     }
 
