@@ -40,12 +40,15 @@
 
   <div class="foreground" slot="foreground">
     <section>This is the first section.</section>
-      <Age 
+      <h1>Anxiety Disorder</h1>
+      
+    <section>This is the second section.</section>
+      
+    <section>This is the third section.</section>
+    <Age 
       {index}
       on:mouseover={handleMouseover}
       on:mouseleave={handleMouseleave}/>
-    <section>This is the second section.</section>
-    <section>This is the third section.</section>
     <section>This is the fourth section.</section>
     <section>This is the fifth section.</section>
     <section>This is the six section.</section>

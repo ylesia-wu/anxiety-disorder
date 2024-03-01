@@ -70,7 +70,7 @@
 </script>
 
 <main>
-  <h1>Anxiety</h1>
+  <h1>Anxiety Prevalence By Age</h1>
   
   <svg {width}{height}>
     {#if index === 0} 
