@@ -4,6 +4,16 @@
 
   let count, index, offset, progress;
 
+  let highlightedBar = null;
+
+  function handleMouseover(event) {
+    highlightedBar = event.detail.index;
+  }
+
+  function handleMouseleave() {
+    highlightedBar = null;
+  }
+
 </script>
 
 <Scroller
@@ -15,11 +25,8 @@
   bind:offset
   bind:progress
 >
-  <div 
-  class="background" 
-  slot="background"
->
-    <div class="progress-bars">
+  <div class="background" slot="background">
+    <!-- <div class="progress-bars">
       <p>current section: <strong>{index + 1}/{count}</strong></p>
       <progress value={count ? (index + 1) / count : 0} />
 
@@ -28,11 +35,15 @@
 
       <p>total progress</p>
       <progress value={progress || 0} />
-    </div>
+    </div> -->
   </div>
 
   <div class="foreground" slot="foreground">
     <section>This is the first section.</section>
+      <Age 
+      {index}
+      on:mouseover={handleMouseover}
+      on:mouseleave={handleMouseleave}/>
     <section>This is the second section.</section>
     <section>This is the third section.</section>
     <section>This is the fourth section.</section>
@@ -51,11 +62,11 @@
   }
 
   .foreground {
-    width: 50%;
+    width: 90%;
     margin: 0 auto;
     height: auto;
     position: relative;
-    outline: red solid 3px;
+    outline: gray solid 3px;
   }
 
   .progress-bars {
@@ -65,12 +76,12 @@
   }
 
   section {
-    height: 80vh;
+    height: 0vh;
     background-color: rgba(0, 0, 0, 0.2); /* 20% opaque */
     /* color: white; */
-    outline: magenta solid 3px;
+    outline: gray 3px;
     text-align: center;
-    max-width: 750px; /* adjust at will */
+    max-width: 1300px; /* adjust at will */
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;
