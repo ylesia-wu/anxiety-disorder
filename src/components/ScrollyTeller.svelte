@@ -1,6 +1,7 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
-  import Age from "./Age.svelte";
+  // import Age from "./Age.svelte";
+  import LoadAge from "./LoadAge.svelte";
 
   let count, index, offset, progress;
 
@@ -43,10 +44,11 @@
       <h1>Anxiety Disorder</h1>
       
     <section>This is the second section.</section>
-    <Age 
+    <LoadAge 
     {index}
     on:mouseover={handleMouseover}
     on:mouseleave={handleMouseleave}/>
+    
     <section>This is the third section.</section>
     
     <section>This is the fourth section.</section>

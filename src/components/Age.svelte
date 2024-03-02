@@ -1,62 +1,22 @@
-<script lang="ts">
+<script>
     import { onMount } from 'svelte';
     import * as d3 from 'd3';
 
-    export let index, width, height;
-
-    let ageData = [];
-
-    onMount(async () => {
-      const res = await fetch('anxiety-disorders-prevalence-by-age.csv');
-      const csv = await res.text();
-
-      await d3.csvParse(csv, (d, i, columns) => {
-
-        ageData.push(
-          {
-          entity: d['Entity'], 
-          year: d['Year'],
-          data: [
-            {age: "5-14", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 5-14 years"]},
-            {age: "15-19", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 15-19 years"]},
-            {age: "20-24", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 20-24 years"]},
-            {age: "25-29", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 25-29 years"]},
-            {age: "30-34", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 30-34 years"]},
-            {age: "35-39", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 35-39 years"]},
-            {age: "40-44", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 40-44 years"]},
-            {age: "45-49", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 45-49 years"]},
-            {age: "50-54", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 50-54 years"]},
-            {age: "55-59", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 55-59 years"]},
-            {age: "60-64", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 60-64 years"]},
-            {age: "65-69", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 65-69 years"]},
-            {age: "70+", value: d["Anxiety disorders (share of population) - Sex: Both - Age: 70+ years"]},
-        ]});
-      });
-    });
-    ageData = ageData;
+    export let ageData, index, width, height;
     
+    let country = "United States";
+    let year = 2003;
+    let filteredData = ageData.filter((d) => (d.entity === country) & (d.year === year))[0].data;
 
-    // let name = "united";
-    // let filteredData = ageData.filter(d => d.entity.toLowerCase().startsWith("united"));
-//     for (let i = 0; i < ageData.length; i++) {
-//     console.log(ageData[i].country);
-// } 
-    console.log(ageData);
-    console.log(ageData[0]);
-    // const ageGroups = [
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 5-14 years": "5-14"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 15-19 years": "15-19"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 20-24 years": "20-24"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 25-29 years": "25-29"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 30-34 years": "30-34"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 35-39 years": "35-39"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 40-44 years": "40-44"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 45-49 years": "45-49"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 50-54 years": "50-54"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 55-59 years": "55-59"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 60-64 years": "60-64"},
-    //   {"Anxiety disorders (share of population) - Sex: Both - Age: 65-69 years": "65-69"}
-    // ];
+    function search() {
+        filteredData = ageData.filter((d) => (d.entity === country) & (d.year === year))[0].data;
+        console.log(filteredData);
+    }
+    // for (let i = 0; i < ageData.length; i++) {
+    //     console.log(ageData[i].entity);
+    // }
+    
+    
 
     const data = [
       {age: "5-14", value: 2.266049},
@@ -111,15 +71,13 @@
     //       .attr('transform', 'rotate(-90)')
     //       ;}
 
-
-
      $: {yScale = d3.scaleBand()
-              .domain(data.map(d => d.age))
+              .domain(filteredData.map(d => d.age))
               .range([margin.top, height - margin.bottom])
               .padding(0.1);
 
       xScale = d3.scaleLinear()
-          .domain([0, Math.max(10, d3.max(data, d => d.value))])
+          .domain([0, Math.max(10, d3.max(filteredData, d => d.value))])
           .range([margin.left, width - margin.right]);
       
       d3.select(yAxis)
@@ -157,10 +115,15 @@
 <main>
   <h1>Anxiety Prevalence By Age</h1>
   
+  <input bind:value={country} type="text" />
+  <input type="number" bind:value={year} />
+
+  <button on:click={search}>Search</button>
+
   <svg {width}{height}>
     {#if index === 1} 
       <g class='bars'>
-        {#each data as d, i}
+        {#each filteredData as d, i}
           <rect	
             x={margin.left}
             y={yScale(d.age)}
