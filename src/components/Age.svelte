@@ -144,7 +144,7 @@
       bind:this={yAxis} />
 
       <g class="axis-title">
-        <text transform={`translate(${1000}, ${height - margin.bottom + 50})`} text-anchor="middle" font-family="Verdana">Anxiety disorders (share of population)</text>
+        <text transform={`translate(${1000}, ${height - margin.bottom + 50})`} text-anchor="middle" font-family="Verdana">Individuals With Anxiety disorders (%)</text>
       </g>
 
       <g class="axis-title">
