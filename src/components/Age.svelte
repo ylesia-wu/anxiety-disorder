@@ -121,7 +121,7 @@
   <button on:click={search}>Search</button>
 
   <svg {width}{height}>
-    {#if index === 1} 
+    <!-- {#if index === 1}  -->
       <g class='bars'>
         {#each filteredData as d, i}
           <rect	
@@ -150,7 +150,7 @@
       <g class="axis-title">
           <text transform={`translate(${margin.left - 70}, ${height / 2 - 60}) rotate(-90)`} text-anchor="middle" font-family="Verdana">Age</text>    
       </g> 
-    {/if}
+    <!-- {/if} -->
   </svg>
 </main>
 
