@@ -1,9 +1,11 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
-  import { fade } from 'svelte/transition';
+  // import { fade } from 'svelte/transition';
   // import Age from "./Age.svelte";
   import LoadAge from "./LoadAge.svelte";
   import LoadGender from "./LoadGender.svelte";
+
+  import CustomerIcon from './CustomerIcon.svelte';
 
   let count, index, offset, progress;
 
@@ -18,6 +20,14 @@
   }
 
 </script>
+
+<div>
+  <h1>Welcome to My Website</h1>
+  <p>
+      <CustomerIcon /> Customer Section
+  </p>
+</div>
+
 
 <Scroller
   top={0.0}
