@@ -91,7 +91,7 @@
 
   <button on:click={search}>Search</button>
 
-  <svg {width}{height}>
+  <svg id="svgContainer" {width}{height} viewBox="0 0 {width} {height}" style="width: auto; max-height: 100%;">
     <!-- {#if index === 1}  -->
       <g class='bars'>
         {#each filteredData as d, i}
