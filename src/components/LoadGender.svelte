@@ -6,6 +6,8 @@
     let genderData = [];
     let loadDataComplete = false;
 
+    export let index;
+
     onMount(async () => {
       const res = await fetch('anxiety-disorders-prevalence-males-vs-females.csv');
       const csv = await res.text();
@@ -21,14 +23,14 @@
       });
       genderData=genderData;
       genderData=genderData.filter((d) => (d.data[0].female !== 0) & (d.data[0].male !== 0));
-      console.log(genderData);
+    //   console.log(genderData);
       loadDataComplete = true;
     });
 </script>
 
 <main>
     {#if loadDataComplete}
-        <Gender {genderData} />
+        <Gender {genderData}{index} />
     {:else}
         <p>Loading...</p>
     {/if}

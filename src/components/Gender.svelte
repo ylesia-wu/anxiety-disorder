@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import * as d3 from 'd3';
 
-    export let genderData, width, height;
+    export let genderData, index, width, height;
 
     let country = "United States";
     let filteredData = genderData.filter((d) => d.entity === country);
@@ -10,8 +10,7 @@
     
 
     function search() {
-        filteredData = genderData.filter((d) => d.entity === country)[0].data;
-        console.log(filteredData);
+        filteredData = genderData.filter((d) => d.entity === country);
     }
 
     const margin = {top: 90, right: 700, bottom: 180, left: 80};
@@ -49,10 +48,36 @@
     //     for (let i = 0; i < filteredData.length; i++) {
     //     console.log(filteredData[i].data[0].female);
     // }
+
+    let highlightedCircle = null;
+
+    function handleHover(i) {
+        highlightedCircle = i;
+    }
+
+    function handleLeave() {
+        highlightedCircle = null;
+    } 
+
+    let tooltipPt = null;
+
+    function onPointerMove(event, i) {
+        tooltipPt = filteredData[i];
+    }
+
+    function onPointerLeave() {
+        tooltipPt = null;
+    }
+
 </script>
 
 <main>
     <h1>Anxiety Prevalence By Gender</h1>
+
+    <input bind:value={country} type="text" />
+
+    <button on:click={search}>Search</button>
+
     <svg {width}{height}>
         <g class='points'>
             {#each filteredData as d, i}
@@ -60,11 +85,18 @@
                 key={i}
                 cx={xScale(d.data[0].female)}
                 cy={yScale(d.data[0].male)}
-                fill='black'
+                fill='#e3c466'
+                stroke='#3b3729'
+                stroke-width='1.5' 
                 r="5"
+                class:highlighted={highlightedCircle === i}
+                on:mouseover={(event) => 
+                    {handleHover(i);
+                    onPointerMove(event, i);}}
+                on:mouseout={(event) => 
+                                {handleLeave();
+                                onPointerLeave();}}
               />
-              <!-- <text x='500' y='500'>{d.data[0].female}</text>
-              <text x='500' y='525'>{d.data[0].male}</text> -->
             {/each}
         </g>
 
@@ -73,5 +105,28 @@
         
         <g transform="translate({margin.left}, 0)"
         bind:this={yAxis} />
+
+        <g class="axis-title">
+            <text transform={`translate(${350}, ${height - margin.bottom + 50})`} text-anchor="middle" font-family="Verdana">Share of Female Population With Anxiety Disorders (%)</text>
+        </g>
+
+        <g class="axis-title">
+            <text transform={`translate(${margin.left - 50}, ${height / 2 - 60}) rotate(-90)`} text-anchor="middle" font-family="Verdana">Share of Male Population With Anxiety Disorders (%)</text>    
+        </g>
+
+        {#if tooltipPt}
+            <g transform={`translate(${xScale(tooltipPt.data[0].female)}, ${yScale(tooltipPt.data[0].male)})`}>
+                <rect x="5" y="-30" width="120" height="50" fill="white" stroke="black" />
+                <text x="10" y="-20" font-size="12" font-weight="regular" font-family="Arial, sans-serif" text-anchor="start" dominant-baseline="central">Year: {tooltipPt.year}</text>
+                <text x="10" y="-5" font-size="12" font-weight="regular" font-family="Arial, sans-serif" text-anchor="start" dominant-baseline="central">Female: {tooltipPt.data[0].female}</text>
+                <text x="10" y="10" font-size="12" font-weight="regular" font-family="Arial, sans-serif" text-anchor="start" dominant-baseline="central">Male: {tooltipPt.data[0].male}</text>
+            </g>
+        {/if}
     </svg>
 </main>
+
+<style>
+    .highlighted {
+        fill: #fce6a4;
+    }
+</style>

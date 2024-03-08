@@ -2,7 +2,7 @@
     import { onMount } from 'svelte';
     import * as d3 from 'd3';
 
-    export let ageData, width, height;
+    export let ageData, index, width, height;
     
     let country = "United States";
     let year = 2019;
@@ -64,6 +64,23 @@
         highlightedBar = null;
     } 
 
+    let tooltipPt = null;
+    let tooltipX = null;
+    let tooltipY = null;
+
+    function onPointerMove(event, i) {
+        console.log('the function ran');
+        tooltipX = xScale(filteredData[i].value) - 150;
+        tooltipY = yScale(filteredData[i].age);
+        tooltipPt = filteredData[i];
+        
+    }
+
+    function onPointerLeave() {
+        tooltipPt = null;
+        tooltipX = null;
+        tooltipY = null;
+    }
 </script>
 
 <main>
@@ -80,13 +97,19 @@
         {#each filteredData as d, i}
           <rect	
             x={margin.left}
-            y={yScale(d.age)}
-            width={xScale(d.value) - margin.left}
-            height={yScale.bandwidth()}
+            y={yScale(d.age) + 1.5}
+            width={xScale(d.value) - margin.left - 3}
+            height={yScale.bandwidth() - 3}
             fill='#e3c466'
+            stroke='#3b3729'
+            stroke-width='1.5' 
             class:highlighted={highlightedBar === i}
-            on:mouseover={() => handleHover(i)}
-            on:mouseout={() => handleLeave()}
+            on:mouseover={(event) => 
+                        {handleHover(i);
+                        onPointerMove(event, i);}}
+            on:mouseout={(event) => 
+                          {handleLeave();
+                          onPointerLeave();}}
           />
         {/each}
       </g>
@@ -98,13 +121,22 @@
       bind:this={yAxis} />
 
       <g class="axis-title">
-        <text transform={`translate(${1000}, ${height - margin.bottom + 50})`} text-anchor="middle" font-family="Verdana">Individuals With Anxiety disorders (%)</text>
+        <text transform={`translate(${950}, ${height - margin.bottom + 50})`} text-anchor="middle" font-family="Verdana">Share of Age Group With Anxiety Disorders (%)</text>
       </g>
 
       <g class="axis-title">
           <text transform={`translate(${margin.left - 70}, ${height / 2 - 60}) rotate(-90)`} text-anchor="middle" font-family="Verdana">Age</text>    
       </g> 
+
+      {#if tooltipPt}
+            <g transform="translate({tooltipX},{tooltipY})">
+                <rect x="-70" y="-20" width="140" height="55" fill="white" stroke="black"></rect>
+                <text x="0" y="0" font-size="14" font-weight="regular" font-family="Arial, sans-serif" text-anchor="middle" dominant-baseline="central">Age: {tooltipPt.age}</text>
+                <text x="0" y="20" font-size="14" font-weight="regular" font-family="Arial, sans-serif" text-anchor="middle" dominant-baseline="central">   {tooltipPt.value}%</text>
+            </g>
+        {/if}
     <!-- {/if} -->
+      
   </svg>
 </main>
 

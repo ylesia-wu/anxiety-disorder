@@ -6,6 +6,8 @@
     let ageData = [];
     let loadDataComplete = false;
 
+    export let index;
+
     onMount(async () => {
       const res = await fetch('anxiety-disorders-prevalence-by-age.csv');
       const csv = await res.text();
@@ -38,7 +40,7 @@
 
 <main>
     {#if loadDataComplete}
-        <Age {ageData} />
+        <Age {ageData} {index}/>
     {:else}
         <p>Loading...</p>
     {/if}

@@ -1,5 +1,6 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
+  import { fade } from 'svelte/transition';
   // import Age from "./Age.svelte";
   import LoadAge from "./LoadAge.svelte";
   import LoadGender from "./LoadGender.svelte";
@@ -50,6 +51,7 @@
       
     <section>
       <LoadAge 
+        {index}
         on:mouseover={handleMouseover}
         on:mouseleave={handleMouseleave}
       />
@@ -58,6 +60,9 @@
 
     <section>
       <LoadGender 
+      {index}
+      on:mouseover={handleMouseover}
+      on:mouseleave={handleMouseleave}
       />
     </section>
     
