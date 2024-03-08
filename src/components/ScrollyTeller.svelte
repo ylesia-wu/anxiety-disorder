@@ -6,6 +6,9 @@
   import LoadGender from "./LoadGender.svelte";
 
   import CustomerIcon from './CustomerIcon.svelte';
+  import LoadStudent from "./LoadStudent.svelte";
+
+  import Quiz from './Quiz.svelte';
   // import Timeline from "./Timeline.svelte";
   // import "@smastrom/flowbite/dist/flowbite.min.css";
 
@@ -60,6 +63,10 @@
 
       <p>Nowadays, anxiety is a normal part of our daily life. People worry about things such as study, work, money, or family issues. However, anxiety disorder involves more than temporary worry or fear, and it does not go away and even get worse over time. The symptoms can interfere with daily activities such as job performance, schoolwork, and relationships. So how can we self-test whether we have symptoms of anxiety disorder? First, let’s take a look at the trends in anxiety disorders in the United States.</p>
     </section>
+
+    <section>
+      <LoadStudent {index}/>
+    </section>
       
     <section>
       <LoadAge 
@@ -83,14 +90,14 @@
     </section>
       
     <section>
-      <h1>Self-test quiz</h1>
+      <Quiz/>
     </section>
       
     <section>
       <h1>Resources</h1>
     </section>
       
-    <section>
+    <!-- <section>
       <h1>Prototype Write-up</h1>
       <p style="text-align: left"><strong> 1. What have you done so far?</strong></p>  
         
@@ -107,7 +114,7 @@
         For the rest of the project, I think the most challenging part of our project to design will be how to make the visualization both interesting and useful for the viewer instead of simply showing statistics and facts. After all, the purpose of the project is to explain our subject of focus, and we need to show, not tell. I think we will mainly focus on making the information relevant to the viewer. We are considering recreating one of the clinical tests for anxiety as part of our visualization for the viewer to self-access their level of anxiety. At this point, we are not sure how exactly to implement this test, and I expect this to be the most challenging part of our project.
       </p>
     </section>
-      
+       -->
 
   </div>
 </Scroller>

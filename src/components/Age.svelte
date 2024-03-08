@@ -84,7 +84,7 @@
 </script>
 
 <main>
-  <h1>Anxiety Prevalence By Age</h1>
+  <h1 style="font-family: Verdana">Anxiety Prevalence By Age</h1>
   
   <input bind:value={country} type="text" />
   <input type="number" bind:value={year} />
