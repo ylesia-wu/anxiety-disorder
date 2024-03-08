@@ -3,7 +3,6 @@
     import * as d3 from 'd3';
     import Age from './Age.svelte';
 
-    export let index;
     let ageData = [];
     let loadDataComplete = false;
 
@@ -39,7 +38,7 @@
 
 <main>
     {#if loadDataComplete}
-        <Age {ageData}{index} />
+        <Age {ageData} />
     {:else}
         <p>Loading...</p>
     {/if}

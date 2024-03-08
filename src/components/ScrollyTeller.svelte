@@ -2,6 +2,7 @@
   import Scroller from "@sveltejs/svelte-scroller";
   // import Age from "./Age.svelte";
   import LoadAge from "./LoadAge.svelte";
+  import LoadGender from "./LoadGender.svelte";
 
   let count, index, offset, progress;
 
@@ -49,12 +50,15 @@
       
     <section>
       <LoadAge 
-        {index}
         on:mouseover={handleMouseover}
         on:mouseleave={handleMouseleave}
       />
       
-      <h1>Anxiety Prevalence By Gender</h1>
+    </section>
+
+    <section>
+      <LoadGender 
+      />
     </section>
     
     <section>
