@@ -6,6 +6,8 @@
   import LoadGender from "./LoadGender.svelte";
 
   import CustomerIcon from './CustomerIcon.svelte';
+  // import Timeline from "./Timeline.svelte";
+  // import "@smastrom/flowbite/dist/flowbite.min.css";
 
   let count, index, offset, progress;
 
@@ -21,12 +23,12 @@
 
 </script>
 
-<div>
+<!-- <div>
   <h1>Welcome to My Website</h1>
   <p>
       <CustomerIcon /> Customer Section
   </p>
-</div>
+</div> -->
 
 
 <Scroller
