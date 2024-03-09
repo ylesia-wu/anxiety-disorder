@@ -24,6 +24,43 @@
     highlightedBar = null;
   }
 
+  // grace added start
+
+  // let currentIndex = 1;
+  //   const totalSlides = 5; // Total number of slides
+
+  //   function nextSlide() {
+  //       if (currentIndex < totalSlides) {
+  //           currentIndex++;
+  //       }
+  //   }
+
+  //   function prevSlide() {
+  //       if (currentIndex > 1) {
+  //           currentIndex--;
+  //       }
+  //   }
+
+  // fix?
+  import { onMount } from 'svelte';
+
+  let currentIndex = 1;
+  const totalSlides = 5; // Total number of slides
+
+  function nextSlide() {
+    if (currentIndex < totalSlides) {
+      currentIndex++;
+    }
+  }
+
+  function prevSlide() {
+    if (currentIndex > 1) {
+      currentIndex--;
+    }
+  }
+
+  // grace added end
+
 </script>
 
 <!-- <div>
@@ -32,6 +69,7 @@
       <CustomerIcon /> Customer Section
   </p>
 </div> -->
+
 
 
 <Scroller
@@ -54,6 +92,43 @@
         <p style="font-family: Verdana">Nowadays, anxiety is a normal part of our daily life. People worry about things such as study, work, money, or family issues. However, anxiety disorder involves more than temporary worry or fear, and it does not go away and even get worse over time. The symptoms can interfere with daily activities such as job performance, schoolwork, and relationships. So how can we self-test whether we have symptoms of anxiety disorder? First, let’s take a look at the trends in anxiety disorders in the United States.</p>
       </div>
     </section>
+
+  <!-- grace added slick-slider -->
+  <div class="card-carousel slick-initialized slick-slider">
+    <button on:click={prevSlide} class="slick-prev slick-arrow" aria-label="Previous" type="button">Previous</button>
+    <div class="slick-list draggable">
+      <div class="slick-track" style="opacity: 1; width: {totalSlides * 370}px;">
+        {#each Array.from({ length: totalSlides }) as _, index}
+          <div class="solid-card slick-slide {index === currentIndex - 1 ? 'slick-current slick-active' : ''}" 
+               style="background-color: rgb(255, 245, 204); width: 370px; position: relative; left: {-(index * 370)}px; top: 0px; z-index: {998 + (index === currentIndex - 1 ? 1 : 0)}; opacity: {index === currentIndex - 1 ? 1 : 0}; transition: opacity 500ms ease 0s;" 
+               data-slick-index="{index}" 
+               aria-hidden="{index !== currentIndex - 1}" 
+               tabindex="{index !== currentIndex - 1 ? -1 : 0}">
+            <h3 class="card-title"></h3>
+            {#if index === 0}
+              <p>Almost one-third of college students report having felt so depressed that they had trouble functioning.</p>
+            {:else if index === 1}
+              <p>More than 80% of college students feel overwhelmed by their workload.</p>
+            {:else if index === 2}
+              <p>The demand for counseling services is growing 5 times faster than average student enrollment.</p>
+            {:else if index === 3}
+              <p>Only 25% of students with a mental health problem seek help.</p>
+            {:else if index === 4}
+              <p>Anxiety continues to be the most common diagnosis of the students that seek services at university counseling centers.</p>
+            {/if}
+          </div>
+        {/each}
+      </div>
+    </div>
+    <button on:click={nextSlide} class="slick-next slick-arrow" aria-label="Next" type="button">Next</button>
+    <div class="slider-count">
+      <p><span id="current">{currentIndex}</span> / <span id="total">{totalSlides}</span></p>
+    </div>
+  </div>
+
+  
+ 
+  <!-- grace added end slick-slider -->
 
     <section>
       <LoadStudent {index}/>
