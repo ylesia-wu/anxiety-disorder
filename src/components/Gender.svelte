@@ -74,10 +74,10 @@
 <main>
     <h1 >Anxiety Prevalence By Gender</h1>
 
-    <input bind:value={country} type="text" />
-
-    <button on:click={search}>Search</button>
-
+    <div style="display: flex; justify-content: center;">
+        <input bind:value={country} type="text" />
+        <button on:click={search}>Search</button>
+    </div>
     <svg {width}{height}>
         <g class='points'>
             {#each filteredData as d, i}

@@ -82,13 +82,14 @@
 </script>
 
 <main>
-<div style="position: relative;">
-  <h1 style="font-family: Verdana">Anxiety Prevalence By Age</h1>
-  <input bind:value={country} type="text" style="position: absolute; top: 80px; left: 800px; transform: translateX(-50%);" />
-  <input type="number" bind:value={year} style="position: absolute; top: 80px; left: 955px; transform: translateX(-50%);" />
-  <button on:click={search} style="position: absolute; top: 80px; left: 1070px; transform: translateX(-50%);">Search</button>
-
-  <svg id="svgContainer" {width}{height} viewBox="0 0 {width} {height}" style="width: auto; max-height: 100%; margin-top: 0px;">
+  
+    <h1 style="font-family: Verdana">Anxiety Prevalence By Age</h1>
+    <div style="display: flex; justify-content: center;">
+      <input bind:value={country} type="text" />
+      <input type="number" bind:value={year} />
+      <button on:click={search} >Search</button>
+    </div>
+    <svg id="svgContainer" {width}{height} viewBox="0 0 {width} {height}" style="width: auto; max-height: 100%; margin-top: 0px;">
     <g class='bars'>
       {#each filteredData as d, i}
         <rect	
@@ -132,7 +133,7 @@
           </g>
       {/if}
 </svg>
-</div>
+
 </main>
 
 <style>

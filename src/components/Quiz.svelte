@@ -91,7 +91,16 @@
                 <p>Likely (27-40)</p>
             </div>
             <div style="position: relative;">
-                <div style="position: absolute; top: 0; left: calc({totalPoints / 40 * 100}% - 5px); width: 25px; height: 25px; background-color: #fce6a4; border-radius: 50%; border: 3px solid #7d7559; transform: translateY(-40%);"></div>
+                <div style="position: absolute; 
+                            top: 0; 
+                            left: calc({totalPoints / 40 * 100}% - 5px); 
+                            width: 25px; 
+                            height: 25px; 
+                            background-color: #fce6a4; 
+                            border-radius: 50%; 
+                            border: 3px solid #7d7559; 
+                            transform: translateY(-40%);">
+                </div>
                 <div style="width: 100%; height: 6px; background-color: #d9d7d2;"></div>
             </div>
         </div>
