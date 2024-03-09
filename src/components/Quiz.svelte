@@ -62,7 +62,7 @@
 </script>
 
 <main>
-    <h1 style="font-family: Verdana">Self-test quiz</h1>
+    <h1 style="font-family: Verdana">Anxiety Self-Assessment Quiz</h1>
     {#if currentQuestionIndex <= 9}
         <div>
             <progress value={currentQuestionIndex + 1} max={questions.length}></progress>
@@ -70,7 +70,7 @@
         </div>
 
         <div style="font-family: Verdana, sans-serif;">
-            <h2 style="font-size: extra larger;">{questions[currentQuestionIndex].text}</h2>
+            <h2 style="font-size: x-large; font-weight: 500">{questions[currentQuestionIndex].text}</h2>
             {#each questions[currentQuestionIndex].options as option, index}
                 <button on:click={() => selectOption(index)}>{option}</button>
             {/each}

@@ -72,7 +72,7 @@
 </script>
 
 <main>
-    <h1>Anxiety Prevalence By Gender</h1>
+    <h1 >Anxiety Prevalence By Gender</h1>
 
     <input bind:value={country} type="text" />
 

@@ -9,7 +9,7 @@
   import LoadStudent from "./LoadStudent.svelte";
 
   import Quiz from './Quiz.svelte';
-  // import Timeline from "./Timeline.svelte";
+  import Timeline from "./Timeline.svelte";
   // import "@smastrom/flowbite/dist/flowbite.min.css";
 
   let count, index, offset, progress;
@@ -44,24 +44,14 @@
   bind:progress
 >
   <div class="background" slot="background">
-    <!-- <div class="progress-bars">
-      <p>current section: <strong>{index + 1}/{count}</strong></p>
-      <progress value={count ? (index + 1) / count : 0} />
-
-      <p>offset in current section</p>
-      <progress value={offset || 0} />
-
-      <p>total progress</p>
-      <progress value={progress || 0} />
-    </div> -->
   </div>
 
   <div class="foreground" slot="foreground">
     
     <section class="intro">
       <div class="intro-content">
-        <h1>Anxiety Disorder</h1>
-        <p>Nowadays, anxiety is a normal part of our daily life. People worry about things such as study, work, money, or family issues. However, anxiety disorder involves more than temporary worry or fear, and it does not go away and even get worse over time. The symptoms can interfere with daily activities such as job performance, schoolwork, and relationships. So how can we self-test whether we have symptoms of anxiety disorder? First, let’s take a look at the trends in anxiety disorders in the United States.</p>
+        <h1 style="font-family: Verdana">Anxiety Disorder</h1>
+        <p style="font-family: Verdana">Nowadays, anxiety is a normal part of our daily life. People worry about things such as study, work, money, or family issues. However, anxiety disorder involves more than temporary worry or fear, and it does not go away and even get worse over time. The symptoms can interfere with daily activities such as job performance, schoolwork, and relationships. So how can we self-test whether we have symptoms of anxiety disorder? First, let’s take a look at the trends in anxiety disorders in the United States.</p>
       </div>
     </section>
 
@@ -114,14 +104,7 @@
     outline: white solid 3px;
   }
 
-  .progress-bars {
-    position: absolute;
-    background: rgba(170, 51, 120, 0.2) /*  40% opaque */;
-    visibility: visible;
-  }
-
   .intro {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
@@ -130,9 +113,9 @@
   }
 
   .intro-content {
-    max-width: 800px; /* Adjust max-width as needed */
+    max-width: 800px; 
     margin: 0 auto;
-  }
+  } 
 
   section {
     height: 80vh;
