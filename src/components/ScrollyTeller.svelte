@@ -369,4 +369,15 @@
     transform: scale(1.5); /* Enlarge the dot */
     background-color: #d1e2f0; /* Color of dot on hover */
   }
+
+  .intro {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-image: url('anxiety_cat.jpeg'); /* Update with the correct path */
+    background-size: cover; /* Ensures that the image covers the entire area */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    padding: 2rem;
+  }
 </style>
