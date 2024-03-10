@@ -24,7 +24,7 @@
             options: ['Never', 'Rarely', 'Sometimes', 'Often', 'Very often']
         },
         { 
-            text: 'Question 6: I have had difficulties with sleep (e.g., waking early, finding it hard to go to sleep)', 
+            text: 'Question 6: I have difficulties with sleep (e.g., waking early, finding it hard to go to sleep)', 
             options: ['Never', 'Rarely', 'Sometimes', 'Often', 'Very often']
         },
         { 
@@ -63,13 +63,9 @@
 </script>
 
 <main>
-    <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 4;">Anxiety Self-Assessment Quiz</h1>
+    <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 2;">Anxiety Self-Assessment Quiz</h1>
     {#if currentQuestionIndex <= 9}
-        <div>
-            <progress value={currentQuestionIndex + 1} max={questions.length}></progress>
-            <span>Question {currentQuestionIndex + 1} of {questions.length}</span>
-        </div>
-
+        
         <div style="font-family: Verdana;">
             <h2 style="font-size: x-large; font-weight: 100; font-size: 30px; line-height: 3; margin-left: 1%;">{questions[currentQuestionIndex].text}</h2>
             {#each questions[currentQuestionIndex].options as option, index}
@@ -77,21 +73,24 @@
             {/each}
         </div>
         
+        <div>
+            <!-- <progress value={currentQuestionIndex + 1} max={questions.length}></progress> -->
+            <div class="progress" style="width: 50%; margin: 0 auto; margin-top: 2%;">
+                <div class="progress-bar" role="progressbar" style="width: {(currentQuestionIndex + 1) * 10}%; background-color: #e3c466;"></div>
+              </div>
+            <span>Question {currentQuestionIndex + 1} of {questions.length}</span>
+        </div>
+        
     {:else}
-        <div style="font-family: Verdana, sans-serif;">
+        <div style="font-family: Verdana, sans-serif; line-height: 10; margin-bottom: 50px;">
             <h2>Your total score is: {totalPoints}</h2>
             <!-- Button to retake the quiz -->
-            <button type="button" class="btn btn-light" on:click={resetQuiz}>Retake the Quiz</button>
         </div>
 
         <!-- Display the three categories and the progress bar -->
-        <div style="display: flex; flex-direction: column; margin-top: 20px; font-family: Verdana, sans-serif;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                <p>Unlikely (0-10)</p>
-                <p>May be suffering (11-26)</p>
-                <p>Likely (27-40)</p>
-            </div>
-            <div style="position: relative;">
+        <div style="display: flex; flex-direction: column; margin-top: 20px; font-family: Verdana, sans-serif; width: 70%; margin: 0 auto;">
+            
+            <div style="position: relative; ">
                 <div style="position: absolute; 
                             top: 0; 
                             left: calc({totalPoints / 40 * 99}% - 5px); 
@@ -104,7 +103,14 @@
                 </div>
                 <div style="width: 99%; justify-content: center; height: 6px; background-color: #d9d7d2;"></div>
             </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; line-height: 5">
+                <p style="flex: 1; text-align: left;">Unlikely (0-10)</p>
+                <p style="flex: 1; text-align: center;">May be suffering (11-26)</p>
+                <p style="flex: 1; text-align: right;">Likely (27-40)</p>
+            </div>
         </div>
+
+        <button type="button" class="btn btn-light" style="margin-top: 5%;" on:click={resetQuiz}>Retake the Quiz</button>
     {/if}  
 </main>
 
