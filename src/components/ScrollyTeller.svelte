@@ -166,6 +166,12 @@
  
   <!-- grace added end -->
 
+    <section class="overview" style="margin-left: 15%; margin-right: 15%; margin-top: 5%; text-align: justify; font-family: Verdana; font-size: 18px;">
+        <p>
+          Anxiety disorders were first officially recognized by the American Psychiatric Association in 1980. Prior to this time those suffering in this way might receive a general diagnosis of “nerves” or “stress.” Generalized anxiety disorder (GAD) is a common disorder characterized by long-lasting anxiety that is not focused on any one object or situation. Those with generalized anxiety disorder experience non-specific persistent fear and worry and become overly concerned with everyday matters.
+        </p>
+    </section>
+
     <section>
       <LoadStudent {index}/>
     </section>
@@ -186,7 +192,7 @@
       />
     </section>
     
-    <section>
+    <section class="symptoms">
       <Symptoms/>
     </section>
       
@@ -218,15 +224,18 @@
 </div>
 
 
-<div class="content-callout">
+<!-- <div class="content-callout">
   <h2>The bottom line</h2>
   <p>Anxiety disorders have many different symptoms, including physical symptoms and debilitating worry and fear. Anxiety disorders can affect people at any time in life. But they often affect people of different ages in different ways. Fortunately, there are effective treatments — including psychotherapy and medications. And healthcare providers tailor them for specific age groups and individuals.</p>
-</div>
+  <p>You should always meet a health provider for diagnosing anxiety disorder. They will provide you with a psychological evaluation that involves discussing your thoughts, feelings and behavior. Anxiety disorders often occur along with other mental health problems which can make diagnosis more challenging. 
+  </p>
+  <p>The two main treatments for anxiety disorders are psychotherapy and medications. Psychotherapy is also known as talk therapy or psychological counseling. It involves working with a therapist to reduce your anxiety symptoms. Several types of medications are used to help relieve symptoms, depending on the type of anxiety disorder you have and whether you also have other mental or physical health issues. </p>
+</div> -->
 
   <!-- grace end -->
       
     <section>
-      <h1>Resources</h1>
+      <h1>References</h1>
     </section>
   </div>
 
@@ -270,6 +279,14 @@
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;
+  }
+
+  .overview {
+    height: 30vh
+  }
+
+  .symptoms {
+    height: 50vh;
   }
 
   .content-callout {

@@ -128,8 +128,8 @@
         </div>
 
         <div style="display: flex; justify-content: center; margin-top: 20px;">
-            <input bind:value={country} type="text" />
-            <button on:click={search}>Search</button>
+            <input bind:value={country} type="text" class="form-control" style="margin-right: 5px;"/>
+            <button on:click={search} class="btn btn-light">Search</button>
         </div>
     </div>
 </main>

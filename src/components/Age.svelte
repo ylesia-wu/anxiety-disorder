@@ -90,9 +90,9 @@
       </div>
       
       <div style="display: flex; justify-content: center; margin-top: 20px;">
-          <input bind:value={country} type="text" />
-          <input type="number" bind:value={year} />
-          <button on:click={search}>Search</button>
+          <input bind:value={country} type="text" class="form-control" style="margin-right: 5px;" />
+          <input type="number" bind:value={year} class="form-control" style="margin-right: 5px;" />
+          <button on:click={search} class="btn btn-light">Search</button>
       </div>
   </div>
   <svg id="svgContainer" {width}{height} viewBox="0 0 {width} {height}" style="width: auto; max-height: 100%; margin-top: 0px;">
@@ -129,6 +129,7 @@
       {/if}
   </svg>
 </main>
+
 
 
 
