@@ -1,4 +1,4 @@
-<main style="margin-left: 150px; margin-right: 150px;">
+<main style="margin-left: 150px; margin-right: 150px; margin-top: 1%;">
         <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 3; text-align: left;">Check yourself if you have symptoms below … </h1>
 
         <style>

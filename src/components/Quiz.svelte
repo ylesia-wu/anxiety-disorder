@@ -62,7 +62,7 @@
     };
 </script>
 
-<main>
+<main style="margin-top: 5%;">
     <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 2;">Anxiety Self-Test</h1>
     {#if currentQuestionIndex <= 9}
         

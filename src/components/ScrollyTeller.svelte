@@ -8,6 +8,7 @@
   import Symptoms from "./Symptoms.svelte";
   import Quiz from './Quiz.svelte';
   import Timeline from "./Timeline.svelte";
+  import Sources from "./Sources.svelte";
   // import "@smastrom/flowbite/dist/flowbite.min.css";
 
   let count, index, offset, progress;
@@ -172,7 +173,7 @@
         </p>
     </section>
 
-    <section>
+    <section style="background-color: #fffbed">
       <LoadStudent {index}/>
     </section>
       
@@ -184,7 +185,7 @@
       />
     </section>
 
-    <section>
+    <section style="background-color: #fffbed">
       <LoadGender 
       {index}
       on:mouseover={handleMouseover}
@@ -196,7 +197,7 @@
       <Symptoms/>
     </section>
       
-    <section>
+    <section style="background-color: #fffbed">
       <Quiz/>
     </section>
 
@@ -235,7 +236,7 @@
   <!-- grace end -->
       
     <section>
-      <h1>References</h1>
+      <Sources/>
     </section>
   </div>
 

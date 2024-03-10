@@ -71,7 +71,7 @@
 
 </script>
 
-<main style="display: flex;">
+<main style="display: flex; margin-top: 5%;">
     
     <svg {width}{height}>
         
@@ -104,6 +104,7 @@
 
         <g class="axis-title">
             <text transform={`translate(${350}, ${height - margin.bottom + 50})`} text-anchor="middle" font-family="Verdana">Share of Female Population With Anxiety Disorders (%)</text>
+            <text transform={`translate(${350}, ${height - margin.bottom + 90})`} text-anchor="middle" font-family="Verdana" font-size="13px">*Each point represents value in a specific year</text>
         </g>
 
         <g class="axis-title">

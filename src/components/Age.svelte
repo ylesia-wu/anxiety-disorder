@@ -81,7 +81,7 @@
   }
 </script>
 
-<main style="display: flex; margin-left: 60px; margin-right: 10px;">
+<main style="display: flex; margin-left: 60px; margin-right: 10px; margin-top: 5%;">
   <div style="flex: 1; margin-right: 30px;">
       <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 3; text-align: left;">Not Just Young Adults ...</h1>
       <div style="width: 100%; font-family: Verdana; font-size: 18px; text-align: justify; line-height: 1.6;">
