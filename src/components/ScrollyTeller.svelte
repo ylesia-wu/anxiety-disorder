@@ -114,7 +114,7 @@
     
     <section class="intro">
       <div class="intro-content">
-        <h1 style="font-family: Verdana">Anxiety Disorder</h1>
+        <h1 style="font-family: Futura; font-size: 100px">Anxiety Disorder</h1>
         <p style="font-family: Verdana">Nowadays, anxiety is a normal part of our daily life. People worry about things such as study, work, money, or family issues. However, anxiety disorder involves more than temporary worry or fear, and it does not go away and even get worse over time. The symptoms can interfere with daily activities such as job performance, schoolwork, and relationships. So how can we self-test whether we have symptoms of anxiety disorder? First, let’s take a look at the trends in anxiety disorders in the United States.</p>
       </div>
     </section>
