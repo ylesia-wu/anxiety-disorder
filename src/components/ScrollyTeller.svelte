@@ -293,7 +293,7 @@
     /* Additional paragraph styling if needed */
   }
 
-  .table-of-contents {
+  /* .table-of-contents {
     position: relative;
     padding-left: 30px;
     font-family: Arial, sans-serif;
@@ -307,7 +307,7 @@
     bottom: 0;
     width: 2px;
     background-color: #000; /* Vertical line color */
-  }
+  /* }
 
   .table-of-contents h4 {
     margin: 0;
@@ -335,16 +335,16 @@
     width: 10px;
     border-radius: 50%;
     background-color: #000; /* Dot color */
-  }
+  /* }
 
   .table-of-contents a {
     color: #000; /* Text color */
-    text-decoration: none;
+    /* text-decoration: none;
     line-height: 1.5;
     padding-left: 20px;
-  }
+  } */
 
-  .table-of-contents a:hover {
+  /* .table-of-contents a:hover {
     text-decoration: underline;
   }
 
@@ -357,13 +357,13 @@
     width: 10px;
     border-radius: 50%;
     background-color: #000; /* Dot color */
-    transition: transform 0.3s ease; /* Smooth transition for dot */
-  }
+    /* transition: transform 0.3s ease; /* Smooth transition for dot */
+  /* }
 
   .table-of-contents li:hover:before {
     transform: scale(1.5); /* Enlarge the dot */
-    background-color: #d1e2f0; /* Color of dot on hover */
-  }
+    /* background-color: #d1e2f0; /* Color of dot on hover */
+  /* }  */
 
   .intro {
     top: 0;
