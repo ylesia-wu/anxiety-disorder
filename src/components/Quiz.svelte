@@ -1,5 +1,6 @@
 <script>
     import { onMount } from 'svelte';
+    import 'bootstrap/dist/css/bootstrap.min.css';
 
     let questions = [
         { 
@@ -62,17 +63,17 @@
 </script>
 
 <main>
-    <h1 style="font-family: Verdana">Anxiety Self-Assessment Quiz</h1>
+    <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 4;">Anxiety Self-Assessment Quiz</h1>
     {#if currentQuestionIndex <= 9}
         <div>
             <progress value={currentQuestionIndex + 1} max={questions.length}></progress>
             <span>Question {currentQuestionIndex + 1} of {questions.length}</span>
         </div>
 
-        <div style="font-family: Verdana, sans-serif;">
-            <h2 style="font-size: x-large; font-weight: 500">{questions[currentQuestionIndex].text}</h2>
+        <div style="font-family: Verdana;">
+            <h2 style="font-size: x-large; font-weight: 100; font-size: 30px; line-height: 3; margin-left: 1%;">{questions[currentQuestionIndex].text}</h2>
             {#each questions[currentQuestionIndex].options as option, index}
-                <button on:click={() => selectOption(index)}>{option}</button>
+                <button type="button" class="btn btn-light" on:click={() => selectOption(index)}>{option}</button>
             {/each}
         </div>
         
@@ -80,7 +81,7 @@
         <div style="font-family: Verdana, sans-serif;">
             <h2>Your total score is: {totalPoints}</h2>
             <!-- Button to retake the quiz -->
-            <button on:click={resetQuiz}>Retake the Quiz</button>
+            <button type="button" class="btn btn-light" on:click={resetQuiz}>Retake the Quiz</button>
         </div>
 
         <!-- Display the three categories and the progress bar -->
@@ -93,7 +94,7 @@
             <div style="position: relative;">
                 <div style="position: absolute; 
                             top: 0; 
-                            left: calc({totalPoints / 40 * 100}% - 5px); 
+                            left: calc({totalPoints / 40 * 99}% - 5px); 
                             width: 25px; 
                             height: 25px; 
                             background-color: #fce6a4; 
@@ -101,13 +102,12 @@
                             border: 3px solid #7d7559; 
                             transform: translateY(-40%);">
                 </div>
-                <div style="width: 100%; height: 6px; background-color: #d9d7d2;"></div>
+                <div style="width: 99%; justify-content: center; height: 6px; background-color: #d9d7d2;"></div>
             </div>
         </div>
-    {/if}
-
-    
+    {/if}  
 </main>
+
 
 
 <style>

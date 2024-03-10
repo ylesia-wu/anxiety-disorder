@@ -83,7 +83,7 @@
 
 <main style="display: flex; margin-left: 60px; margin-right: 10px;">
   <div style="flex: 1; margin-right: 30px;">
-      <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 3;">Not Just Young Adults ...</h1>
+      <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 3; text-align: left;">Not Just Young Adults ...</h1>
       <div style="width: 100%; font-family: Verdana; font-size: 18px; text-align: justify; line-height: 1.6;">
         <p>Anxiety is a pervasive issue that afflicts not just students but also a significant portion of the middle-aged population, who grapple with severe forms of this debilitating condition. A 2001-2003 U.S. survey showed over 32% of adults aged 18-60 had an anxiety disorder at some point, and those aged 30-49 had the highest rate reporting an anxiety disorder in the past year.</p>
         <p>The bar plot to the right presents anxiety disorder statistics according to Our World in Data. For the United States, data shows a consistent pattern of middle-aged groups having higher shares of the population that has anxiety.</p>
