@@ -185,7 +185,7 @@
       />
     </section>
 
-    <section style="background-color: #fffbed">
+    <section class="gender" style="background-color: #fffbed">
       <LoadGender 
       {index}
       on:mouseover={handleMouseover}
@@ -197,7 +197,7 @@
       <Symptoms/>
     </section>
       
-    <section style="background-color: #fffbed">
+    <section class="quiz" style="background-color: #fffbed">
       <Quiz/>
     </section>
 
@@ -272,7 +272,7 @@
   } 
 
   section {
-    height: 80vh;
+    height: 90vh;
     background-color: rgba(0, 0, 0, 0.0); /* 20% opaque */
     /* color: white; */
     outline: white 3px;
@@ -283,11 +283,19 @@
   }
 
   .overview {
-    height: 30vh
+    height: 30vh;
+  }
+
+  .gender {
+    height: 100vh;
   }
 
   .symptoms {
     height: 50vh;
+  }
+
+  .quiz {
+    height: 100vh;
   }
 
   .content-callout {
@@ -387,6 +395,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: 80vh;
     background-image: url('yellow-gray.avif'); /* Update with the correct path */
     background-size: cover; /* Ensures that the image covers the entire area */
     background-position: center center; /* Centers the image */
