@@ -13,7 +13,7 @@
         filteredData = genderData.filter((d) => d.entity === country);
     }
 
-    const margin = {top: 90, right: 700, bottom: 180, left: 80};
+    const margin = {top: 90, right: 700, bottom: 180, left: 100};
     width = 1300;
     height = 680;
 
@@ -71,14 +71,10 @@
 
 </script>
 
-<main>
-    <h1 >Anxiety Prevalence By Gender</h1>
-
-    <div style="display: flex; justify-content: center;">
-        <input bind:value={country} type="text" />
-        <button on:click={search}>Search</button>
-    </div>
+<main style="display: flex;">
+    
     <svg {width}{height}>
+        
         <g class='points'>
             {#each filteredData as d, i}
               <circle
@@ -123,6 +119,19 @@
             </g>
         {/if}
     </svg>
+
+    <div style="margin-left: -580px; width: 600px;">
+        <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 1.6;">The Silent Struggle: Anxiety Among Males</h1>
+        <div style="font-family: Verdana; font-size: 18px; text-align: justify; line-height: 1.6;">
+            <p>Data suggests that a higher share of the female population has an anxiety disorder compared to males. However, data also shows that the share of the male population with anxiety is not significantly less than that of females. In the United States during the past decade, the percentage of males with anxiety has been around two-thirds of that of females, representing tens of millions of individuals.</p>
+            <p>Some men may avoid discussing the anxiety they experience if they don't perceive it as serious enough for intervention. Approximately 40% of men have never spoken to anyone about their mental health. A likely reason for this phenomenon is the gender stereotype that still prevails in our society.</p>
+        </div>
+
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <input bind:value={country} type="text" />
+            <button on:click={search}>Search</button>
+        </div>
+    </div>
 </main>
 
 <style>

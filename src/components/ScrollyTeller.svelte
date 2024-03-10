@@ -1,13 +1,11 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
   // import { fade } from 'svelte/transition';
-  // import Age from "./Age.svelte";
+  import Intro from './Intro.svelte';
+  import LoadStudent from "./LoadStudent.svelte";
   import LoadAge from "./LoadAge.svelte";
   import LoadGender from "./LoadGender.svelte";
-
-  import CustomerIcon from './CustomerIcon.svelte';
-  import LoadStudent from "./LoadStudent.svelte";
-
+  import Symptoms from "./Symptoms.svelte";
   import Quiz from './Quiz.svelte';
   import Timeline from "./Timeline.svelte";
   // import "@smastrom/flowbite/dist/flowbite.min.css";
@@ -113,14 +111,11 @@
     
     
     <section class="intro">
-      <div class="intro-content">
-        <h1 style="font-family: Futura; font-size: 100px">Anxiety Disorder</h1>
-        <p style="font-family: Verdana">Nowadays, anxiety is a normal part of our daily life. People worry about things such as study, work, money, or family issues. However, anxiety disorder involves more than temporary worry or fear, and it does not go away and even get worse over time. The symptoms can interfere with daily activities such as job performance, schoolwork, and relationships. So how can we self-test whether we have symptoms of anxiety disorder? First, let’s take a look at the trends in anxiety disorders in the United States.</p>
-      </div>
+      <Intro/>
     </section>
 
     <!-- grace add table of content -->
-    <nav class="table-of-contents">
+    <!-- <nav class="table-of-contents">
       <h4>Table of Contents:</h4>
       <ul>
         <li><a href="#overview" data-section="#overview" on:click={scrollToSection}>Overview</a></li>
@@ -130,11 +125,11 @@
         <li><a href="#types" data-section="#types" on:click={scrollToSection}>Types of Anxiety Men Experience</a></li>
         <li><a href="#treatment" data-section="#treatment" on:click={scrollToSection}>Anxiety Treatment for Men</a></li>
       </ul>
-    </nav>
+    </nav> -->
     <!-- grace add table of content end -->
 
   <!-- grace added slick-slider -->
-  <div class="card-carousel slick-initialized slick-slider">
+  <!-- <div class="card-carousel slick-initialized slick-slider">
     <button on:click={prevSlide} class="slick-prev slick-arrow" aria-label="Previous" type="button">Previous</button>
     <div class="slick-list draggable">
       <div class="slick-track" style="opacity: 1; width: {totalSlides * 370}px;">
@@ -164,7 +159,7 @@
     <div class="slider-count">
       <p><span id="current">{currentIndex}</span> / <span id="total">{totalSlides}</span></p>
     </div>
-  </div>
+  </div> -->
 
     
   
@@ -192,7 +187,7 @@
     </section>
     
     <section>
-      <h1>What are the signs and symptoms of anxiety?</h1>
+      <Symptoms/>
     </section>
       
     <section>
@@ -243,14 +238,14 @@
     width: 100%;
     height: 100vh;
     position: relative;
-    outline: white solid 3px;
+    outline: white solid 0px;
   }
 
   .foreground {
     width: 100%;
     height: auto;
     position: relative;
-    outline: white solid 3px;
+    outline: white solid 0px;
   }
 
   .intro {
@@ -374,7 +369,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    background-image: url('anxiety_cat.jpeg'); /* Update with the correct path */
+    background-image: url('yellow-gray.avif'); /* Update with the correct path */
     background-size: cover; /* Ensures that the image covers the entire area */
     background-position: center center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from repeating */

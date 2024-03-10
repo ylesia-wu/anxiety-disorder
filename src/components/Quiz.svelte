@@ -87,7 +87,7 @@
         <div style="display: flex; flex-direction: column; margin-top: 20px; font-family: Verdana, sans-serif;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
                 <p>Unlikely (0-10)</p>
-                <p>Might be suffering (11-26)</p>
+                <p>May be suffering (11-26)</p>
                 <p>Likely (27-40)</p>
             </div>
             <div style="position: relative;">

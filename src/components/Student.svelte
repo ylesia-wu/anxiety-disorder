@@ -12,7 +12,7 @@
         const studentsWithAnxiety = studentData.filter(student => student.anxiety === 'Yes').length;
         const studentsWithoutAnxiety = studentData.filter(student => student.anxiety === 'No').length;
 
-        const margin = {top: 90, right: 50, bottom: 180, left: 50};
+        const margin = {top: 90, right: 50, bottom: 180, left: 120};
         const chartWidth = width - margin.left - margin.right;
         const chartHeight = height - margin.top - margin.bottom;
 
@@ -71,7 +71,7 @@
             .attr('font-size', 14)
             .attr('fill', 'white');
 
-            svg.append('text')
+        svg.append('text')
             .attr('x', 47)
             .attr('y', 25)
             .text('No Anxiety')
@@ -84,15 +84,26 @@
             .attr('x', 0)
             .attr('y', 250)
             .attr('text-anchor', 'middle')
-            .text('Proportion of Students With Anxiety')
+            .text('Anxiety Prevalence in College Students (%)')
             .attr('font-family', 'Verdana')
             .attr('font-size', 18)
             .attr('font-weight', 400);
     });
 </script>
 
-<main>
-    <h1 style="font-family: Verdana">Anxiety in College Student Population</h1>
-
-    <svg></svg>
+<main style="display: flex;">
+    <svg style="flex: 1;"></svg>
+    <div style="flex: 1; margin-right: 130px; margin-left: 50px; margin-top: 50px">
+        <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 3;">Anxiety Among College Students</h1>
+        <div style="font-family: Verdana; font-size: 18px; text-align: justify; line-height: 1.6;">
+            <p>College students are one of the most vulnerable populations when it comes to mental health concerns.</p>
+            <p>In the Spring 2022 National College Health Assessment (American College Health Association, 2022), roughly one in three students reported being diagnosed with an anxiety disorder (e.g., generalized anxiety disorder, social anxiety disorder, panic disorder, and specific phobia), while about 35% of students reported anxiety as an impeding factor to academic performance.</p>
+        </div>
+    </div>
 </main>
+
+
+
+
+
+
