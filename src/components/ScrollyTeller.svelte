@@ -62,6 +62,26 @@
   
   let isOpen = false; // State to manage accordion open/close
 
+  // table of content 
+  const sections = [
+    { id: 'section-1', title: 'Overview' },
+    { id: 'section-2', title: 'The Difference Between Anxiety in Men vs. Women' },
+    { id: 'section-3', title: 'Signs & Symptoms of Anxiety in Men' },
+    { id: 'section-4', title: 'Causes of Anxiety in Men' },
+    { id: 'section-5', title: 'Types of Anxiety Men Experience' },
+    { id: 'section-6', title: 'Anxiety Treatment for Men' }
+    // Add more sections as needed
+  ];
+
+  // Function to scroll to section
+  function scrollToSection(event) {
+    const sectionId = event.target.getAttribute('data-section');
+    const section = document.querySelector(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
 
   // grace added end
 
@@ -89,6 +109,8 @@
   </div>
 
   <div class="foreground" slot="foreground">
+
+    
     
     <section class="intro">
       <div class="intro-content">
@@ -96,6 +118,20 @@
         <p style="font-family: Verdana">Nowadays, anxiety is a normal part of our daily life. People worry about things such as study, work, money, or family issues. However, anxiety disorder involves more than temporary worry or fear, and it does not go away and even get worse over time. The symptoms can interfere with daily activities such as job performance, schoolwork, and relationships. So how can we self-test whether we have symptoms of anxiety disorder? First, let’s take a look at the trends in anxiety disorders in the United States.</p>
       </div>
     </section>
+
+    <!-- grace add table of content -->
+    <nav class="table-of-contents">
+      <h4>Table of Contents:</h4>
+      <ul>
+        <li><a href="#overview" data-section="#overview" on:click={scrollToSection}>Overview</a></li>
+        <li><a href="#difference" data-section="#difference" on:click={scrollToSection}>The Difference Between Anxiety in Men vs. Women</a></li>
+        <li><a href="#symptoms" data-section="#symptoms" on:click={scrollToSection}>Signs & Symptoms of Anxiety in Men</a></li>
+        <li><a href="#causes" data-section="#causes" on:click={scrollToSection}>Causes of Anxiety in Men</a></li>
+        <li><a href="#types" data-section="#types" on:click={scrollToSection}>Types of Anxiety Men Experience</a></li>
+        <li><a href="#treatment" data-section="#treatment" on:click={scrollToSection}>Anxiety Treatment for Men</a></li>
+      </ul>
+    </nav>
+    <!-- grace add table of content end -->
 
   <!-- grace added slick-slider -->
   <div class="card-carousel slick-initialized slick-slider">
@@ -260,5 +296,77 @@
   .content-callout p {
     margin-top: 0;
     /* Additional paragraph styling if needed */
+  }
+
+  .table-of-contents {
+    position: relative;
+    padding-left: 30px;
+    font-family: Arial, sans-serif;
+  }
+
+  .table-of-contents:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 25px;
+    bottom: 0;
+    width: 2px;
+    background-color: #000; /* Vertical line color */
+  }
+
+  .table-of-contents h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  .table-of-contents ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .table-of-contents li {
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .table-of-contents li:before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #000; /* Dot color */
+  }
+
+  .table-of-contents a {
+    color: #000; /* Text color */
+    text-decoration: none;
+    line-height: 1.5;
+    padding-left: 20px;
+  }
+
+  .table-of-contents a:hover {
+    text-decoration: underline;
+  }
+
+  .table-of-contents li:before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: #000; /* Dot color */
+    transition: transform 0.3s ease; /* Smooth transition for dot */
+  }
+
+  .table-of-contents li:hover:before {
+    transform: scale(1.5); /* Enlarge the dot */
+    background-color: #d1e2f0; /* Color of dot on hover */
   }
 </style>
