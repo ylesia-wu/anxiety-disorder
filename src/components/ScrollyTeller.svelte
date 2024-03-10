@@ -59,6 +59,10 @@
     }
   }
 
+  
+  let isOpen = false; // State to manage accordion open/close
+
+
   // grace added end
 
 </script>
@@ -126,9 +130,10 @@
     </div>
   </div>
 
+    
   
  
-  <!-- grace added end slick-slider -->
+  <!-- grace added end -->
 
     <section>
       <LoadStudent {index}/>
@@ -157,11 +162,44 @@
     <section>
       <Quiz/>
     </section>
+
+    <!-- bottom line grace -->
+    <div data-qa="ContentCalloutH2Title" class="
+    flow-root
+    p-[24px]
+    my-[32px]
+    bg-inform
+    rounded-[12px]
+    [&amp;>h2]:mt-0
+    [&amp;>h2]:mb-[12px]
+    [&amp;>h2]:font-header-m
+    sm:[&amp;>h2]:font-header-l
+    [&amp;>p:first-of-type]:mt-0
+    [&amp;>ul:first-of-type]:mt-0
+    [&amp;>ol:first-of-type]:mt-0
+    [&amp;>*:last-child]:mb-0
+    [&amp;>*:last-child>li:last-child]:mb-0
+  ">
+  <!-- <h2 class="styles__StyledText-pkg__sc-1pf85vx-0 sJghp re-text" color="$text-primary">The bottom line</h2>
+  <span class="styles__StyledText-pkg__sc-1pf85vx-0 gZzaRP sc-487baef-1 cTRlKV re-text" color="$text-primary" id="bottom-line"></span>
+  <div id="highlight-bottom-line" class="styles__StyledBox-pkg__sc-13oi5ev-0 kXAINL"></div>
+  <p class="styles__StyledText-pkg__sc-1pf85vx-0 kCzgZL re-text" color="$text-primary">Anxiety disorders have many different symptoms, including physical symptoms and debilitating worry and fear. Anxiety disorders can affect people at any time in life. But they often affect people of different ages in different ways. Fortunately, there are effective treatments — including psychotherapy and medications. And healthcare providers tailor them for specific age groups and individuals.</p> -->
+</div>
+
+
+<div class="content-callout">
+  <h2>The bottom line</h2>
+  <p>Anxiety disorders have many different symptoms, including physical symptoms and debilitating worry and fear. Anxiety disorders can affect people at any time in life. But they often affect people of different ages in different ways. Fortunately, there are effective treatments — including psychotherapy and medications. And healthcare providers tailor them for specific age groups and individuals.</p>
+</div>
+
+  <!-- grace end -->
       
     <section>
       <h1>Resources</h1>
     </section>
   </div>
+
+
 </Scroller>
 
 <style>
@@ -201,5 +239,26 @@
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;
+  }
+
+  .content-callout {
+    padding: 24px;
+    margin: 32px auto; /* Centers the block horizontally */
+    background-color: #f0f4f8; /* Example background color */
+    border-radius: 12px;
+    font-family: Verdana, sans-serif;
+    max-width: 800px; /* Sets the maximum width of the block */
+    /* You can adjust the 800px to whatever width suits your design */
+  }
+
+  .content-callout h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 20px; /* Example font size */
+  }
+
+  .content-callout p {
+    margin-top: 0;
+    /* Additional paragraph styling if needed */
   }
 </style>
