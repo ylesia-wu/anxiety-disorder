@@ -113,10 +113,10 @@
 
         {#if tooltipPt}
             <g transform={`translate(${xScale(tooltipPt.data[0].female)}, ${yScale(tooltipPt.data[0].male)})`}>
-                <rect x="5" y="-30" width="120" height="50" fill="white" stroke="black" />
-                <text x="10" y="-20" font-size="12" font-weight="regular" font-family="Arial, sans-serif" text-anchor="start" dominant-baseline="central">Year: {tooltipPt.year}</text>
-                <text x="10" y="-5" font-size="12" font-weight="regular" font-family="Arial, sans-serif" text-anchor="start" dominant-baseline="central">Female: {tooltipPt.data[0].female}</text>
-                <text x="10" y="10" font-size="12" font-weight="regular" font-family="Arial, sans-serif" text-anchor="start" dominant-baseline="central">Male: {tooltipPt.data[0].male}</text>
+                <rect x="-120" y="-30" width="120" height="50" fill="white" stroke="black" />
+                <text x="-115" y="-20" font-size="12" font-weight="regular" font-family="Arial, sans-serif" text-anchor="start" dominant-baseline="central">Year: {tooltipPt.year}</text>
+                <text x="-115" y="-5" font-size="12" font-weight="regular" font-family="Arial, sans-serif" text-anchor="start" dominant-baseline="central">Female: {tooltipPt.data[0].female}</text>
+                <text x="-115" y="10" font-size="12" font-weight="regular" font-family="Arial, sans-serif" text-anchor="start" dominant-baseline="central">Male: {tooltipPt.data[0].male}</text>
             </g>
         {/if}
     </svg>
