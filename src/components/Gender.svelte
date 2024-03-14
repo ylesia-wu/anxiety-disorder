@@ -159,7 +159,7 @@
         <div style="display: flex; justify-content: center; margin-top: 20px;">
             <input bind:value={countryInput} type="text" class="form-control" placeholder="Search for a country..." />
             {#if countrySuggestions.length}
-                <ul class="suggestions-list">
+                <ul class="suggestions-list" style="margin-top: 42px; width:auto">
                     {#each countrySuggestions as suggestion}
                         <li on:click={() => selectCountry(suggestion)}>{suggestion}</li>
                     {/each}
@@ -168,10 +168,6 @@
             <button on:click={search} class="btn btn-light">Search</button>
         </div>
     </div>
-
-
-
-
 
 </main>
 
