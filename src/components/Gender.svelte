@@ -6,23 +6,41 @@
 
     let country = "United States";
     let filteredData = genderData.filter((d) => d.entity === country);
-    // console.log(filteredData);
-    
+    let countryInput = ""; // This will bind to the input field
+    let countrySuggestions = []; // This will store filtered suggestions
+
+    // Extract unique country names for suggestions
+    let uniqueCountries = Array.from(new Set(genderData.map(d => d.entity)));
+
+    // Update suggestions based on input
+    $: {
+        if (countryInput) {
+            countrySuggestions = uniqueCountries.filter(c => 
+                c.toLowerCase().startsWith(countryInput.toLowerCase())
+            );
+        } else {
+            countrySuggestions = [];
+        }
+    }
 
     function search() {
-        // Convert the country input to lower case for case-insensitive comparison
+        // Update the country variable with the current input
+        country = countryInput;
         let lowerCaseCountry = country.toLowerCase();
-        filteredData = genderData.filter((d) => d.entity.toLowerCase() === country);
+        filteredData = genderData.filter((d) => d.entity.toLowerCase() === lowerCaseCountry);
+    }
+
+    function selectCountry(selectedCountry) {
+        countryInput = selectedCountry;
+        countrySuggestions = [];
+        search(); // Trigger the search immediately upon selection
     }
 
     const margin = {top: 90, right: 700, bottom: 180, left: 100};
     width = 1300;
     height = 680;
 
-    let xScale;
-    let yScale;
-    let xAxis;
-    let yAxis;
+    let xScale, yScale, xAxis, yAxis;
 
     $: {xScale = d3.scaleLinear()
           .domain([0, Math.max(10, d3.max(filteredData, d => d.data[0].female))])
@@ -74,6 +92,9 @@
 </script>
 
 <main style="display: flex; margin-top: 5%;">
+
+   
+
     
     <svg {width}{height}>
         
@@ -130,15 +151,51 @@
             <p>Some men may avoid discussing the anxiety they experience if they don't perceive it as serious enough for intervention. Approximately 40% of men have never spoken to anyone about their mental health. A likely reason for this phenomenon is the gender stereotype that still prevails in our society.</p>
         </div>
 
-        <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <!-- <div style="display: flex; justify-content: center; margin-top: 20px;">
             <input bind:value={country} type="text" class="form-control" style="margin-right: 5px;"/>
+            <button on:click={search} class="btn btn-light">Search</button>
+        </div> -->
+
+        <div style="display: flex; justify-content: center; margin-top: 20px;">
+            <input bind:value={countryInput} type="text" class="form-control" placeholder="Search for a country..." />
+            {#if countrySuggestions.length}
+                <ul class="suggestions-list">
+                    {#each countrySuggestions as suggestion}
+                        <li on:click={() => selectCountry(suggestion)}>{suggestion}</li>
+                    {/each}
+                </ul>
+            {/if}
             <button on:click={search} class="btn btn-light">Search</button>
         </div>
     </div>
+
+
+
+
+
 </main>
 
 
 <style>
+    .suggestions-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        z-index: 1000;
+    }
+
+    .suggestions-list li {
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    .suggestions-list li:hover {
+        background-color: #f0f0f0;
+    }
+
     .highlighted {
         fill: #fce6a4;
     }
