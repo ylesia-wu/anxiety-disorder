@@ -9,7 +9,9 @@
   let filteredData = ageData.filter((d) => (d.entity === country) & (d.year === year))[0].data;
 
   function search() {
-      filteredData = ageData.filter((d) => (d.entity === country) & (d.year === year))[0].data;
+      // Convert the country input to lower case for case-insensitive comparison
+      let lowerCaseCountry = country.toLowerCase();
+      filteredData = ageData.filter((d) => (d.entity.toLowerCase() === country) & (d.year === year))[0].data;
       console.log(filteredData);
   }
 

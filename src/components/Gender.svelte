@@ -10,7 +10,9 @@
     
 
     function search() {
-        filteredData = genderData.filter((d) => d.entity === country);
+        // Convert the country input to lower case for case-insensitive comparison
+        let lowerCaseCountry = country.toLowerCase();
+        filteredData = genderData.filter((d) => d.entity.toLowerCase() === country);
     }
 
     const margin = {top: 90, right: 700, bottom: 180, left: 100};
