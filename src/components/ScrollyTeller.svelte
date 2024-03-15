@@ -8,6 +8,7 @@
   import Symptoms from "./Symptoms.svelte";
   import Quiz from './Quiz.svelte';
   import Timeline from "./Timeline.svelte";
+  import Takeaway from "./Takeaway.svelte";
   import Sources from "./Sources.svelte";
   // import "@smastrom/flowbite/dist/flowbite.min.css";
 
@@ -234,8 +235,12 @@
 </div> -->
 
   <!-- grace end -->
-      
-    <section>
+    
+    <section class="takeaway">
+      <Takeaway/>
+    </section>
+
+    <section style="background-color: #fffbed">
       <Sources/>
     </section>
   </div>
@@ -296,6 +301,10 @@
 
   .quiz {
     height: 100vh;
+  }
+
+  .takeaway {
+    height: 40vh;
   }
 
   .content-callout {

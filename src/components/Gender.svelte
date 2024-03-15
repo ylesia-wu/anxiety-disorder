@@ -34,10 +34,9 @@
     function selectCountry(selectedCountry) {
         countryInput = selectedCountry;
         search(); // Trigger the search immediately upon selection
-        console.log(country);
     }
 
-    const margin = {top: 90, right: 700, bottom: 180, left: 100};
+    const margin = {top: 90, right: 710, bottom: 180, left: 100};
     width = 1300;
     height = 680;
 
@@ -133,7 +132,7 @@
         </g>
 
         <!-- Title -->
-        <text x="55%" y="58" font-family="Verdana" font-size="18" text-anchor="middle" class="title">Share of Population with Anxiety</text>
+        <text x="55%" y="45" font-family="Verdana" font-size="18" text-anchor="middle" class="title">Share of Population with Anxiety in {country}</text>
 
         {#if tooltipPt}
             <g transform={`translate(${xScale(tooltipPt.data[0].female)}, ${yScale(tooltipPt.data[0].male)})`}>

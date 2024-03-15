@@ -7,13 +7,37 @@
   let country = "United States";
   let year = 2019;
   let filteredData = ageData.filter((d) => (d.entity === country) & (d.year === year))[0].data;
+  
+  let countryInput = ""; // This will bind to the input field
+  let countrySuggestions = []; // This will store filtered suggestions
+
+  // Extract unique country names for suggestions
+  let uniqueCountries = Array.from(new Set(ageData.map(d => d.entity)));
+  
+  // Update suggestions based on input
+  $: {
+        if (countryInput) {
+            countrySuggestions = uniqueCountries.filter(c => 
+                c.toLowerCase().startsWith(countryInput.toLowerCase())
+            );
+        } else {
+            countrySuggestions = [];
+        }
+    }
 
   function search() {
+      country = countryInput;
       // Convert the country input to lower case for case-insensitive comparison
       let lowerCaseCountry = country.toLowerCase();
-      filteredData = ageData.filter((d) => (d.entity.toLowerCase() === country) & (d.year === year))[0].data;
-      console.log(filteredData);
+      filteredData = ageData.filter((d) => (d.entity.toLowerCase() === lowerCaseCountry) & (d.year === year))[0].data;
+    //   console.log(filteredData);
+      countryInput = null;
   }
+
+  function selectCountry(selectedCountry) {
+        countryInput = selectedCountry;
+        search(); // Trigger the search immediately upon selection
+    }
 
   const margin = {top: 90, right: 30, bottom: 180, left: 100};
   width = 650;
@@ -92,7 +116,14 @@
       </div>
       
       <div style="display: flex; justify-content: center; margin-top: 20px;">
-          <input bind:value={country} type="text" class="form-control" style="margin-right: 5px;" />
+          <input bind:value={countryInput} type="text" class="form-control" style="margin-right: 5px;" placeholder="Search for a country..." />
+          {#if countrySuggestions.length}
+                <ul class="suggestions-list" style="margin-top: 42px; margin-left: -30%">
+                    {#each countrySuggestions as suggestion}
+                        <li on:click={() => selectCountry(suggestion)}>{suggestion}</li>
+                    {/each}
+                </ul>
+            {/if}
           <input type="number" bind:value={year} class="form-control" style="margin-right: 5px;" />
           <button on:click={search} class="btn btn-light">Search</button>
       </div>
@@ -122,6 +153,10 @@
       <g class="axis-title">
           <text transform={`translate(${margin.left - 70}, ${height / 2 - 60}) rotate(-90)`} text-anchor="middle" font-family="Verdana">Age</text>    
       </g> 
+
+      <!-- Title -->
+      <text x="55%" y="55" font-family="Verdana" font-size="18" text-anchor="middle" class="title">Share of Population with Anxiety in {country}</text>
+
       {#if tooltipPt}
           <g transform="translate({tooltipX},{tooltipY})">
               <rect x="-60" y="-20" width="120" height="55" fill="white" stroke="black"></rect>
@@ -136,6 +171,25 @@
 
 
 <style>
+  .suggestions-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        z-index: 1000;
+    }
+
+    .suggestions-list li {
+        padding: 8px 12px;
+        cursor: pointer;
+    }
+
+    .suggestions-list li:hover {
+        background-color: #f0f0f0;
+    }
+  
   .highlighted {
       fill: #fce6a4;
   }
