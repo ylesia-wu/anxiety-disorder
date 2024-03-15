@@ -29,13 +29,12 @@
         let lowerCaseCountry = country.toLowerCase();
         filteredData = genderData.filter((d) => d.entity.toLowerCase() === lowerCaseCountry);
         countryInput = null;
-        countrySuggestions = [];
     }
 
     function selectCountry(selectedCountry) {
         countryInput = selectedCountry;
         search(); // Trigger the search immediately upon selection
-        countrySuggestions = [];
+        console.log(country);
     }
 
     const margin = {top: 90, right: 700, bottom: 180, left: 100};
@@ -133,6 +132,9 @@
             <text transform={`translate(${margin.left - 50}, ${height / 2 - 60}) rotate(-90)`} text-anchor="middle" font-family="Verdana">Share of Male Population With Anxiety Disorders (%)</text>    
         </g>
 
+        <!-- Title -->
+        <text x="55%" y="58" font-family="Verdana" font-size="18" text-anchor="middle" class="title">Share of Population with Anxiety</text>
+
         {#if tooltipPt}
             <g transform={`translate(${xScale(tooltipPt.data[0].female)}, ${yScale(tooltipPt.data[0].male)})`}>
                 <rect x="-120" y="-30" width="120" height="50" fill="white" stroke="black" />
@@ -156,15 +158,15 @@
         </div> -->
 
         <div style="display: flex; justify-content: center; margin-top: 20px;">
-            <input bind:value={countryInput} style="" type="text" class="form-control" placeholder="Search for a country..." />
+            <input bind:value={countryInput} style="" type="text" class="form-control" placeholder="Search for a country..."/>
             {#if countrySuggestions.length}
-                <ul class="suggestions-list" style="margin-top: 42px;">
+                <ul class="suggestions-list" style="margin-top: 42px; margin-left: -30%">
                     {#each countrySuggestions as suggestion}
                         <li on:click={() => selectCountry(suggestion)}>{suggestion}</li>
                     {/each}
                 </ul>
             {/if}
-            <button on:click={search} class="btn btn-light">Search</button>
+            <button on:click={search} class="btn btn-light" style="margin-left: 9px;">Search</button>
         </div>
     </div>
 
