@@ -116,7 +116,7 @@
       </div>
       
       <div style="display: flex; justify-content: center; margin-top: 20px;">
-          <input bind:value={countryInput} type="text" class="form-control" style="margin-right: 5px;" placeholder="Search for a country..." />
+          <input bind:value={countryInput} type="text" class="form-control" style="margin-right: 5px;" placeholder="Search for a country/region..." />
           {#if countrySuggestions.length}
                 <ul class="suggestions-list" style="margin-top: 42px; margin-left: -30%">
                     {#each countrySuggestions as suggestion}
@@ -124,7 +124,7 @@
                     {/each}
                 </ul>
             {/if}
-          <input type="number" bind:value={year} class="form-control" style="margin-right: 5px;" />
+          <input type="number" bind:value={year} class="form-control" style="margin-right: 5px; width: 30%" />
           <button on:click={search} class="btn btn-light">Search</button>
       </div>
   </div>

@@ -144,7 +144,7 @@
         {/if}
     </svg>
 
-    <div style="margin-left: 50px; margin-right: 100px; width: 100%;">
+    <div style="margin-left: 50px; margin-right: 100px; width: 90%;">
         <h1 style="font-family: Futura; font-size: 34px; margin-bottom: 20px; line-height: 1.6;">The Silent Struggle: Anxiety Among Males</h1>
         <div style="font-family: Verdana; font-size: 18px; text-align: justify; line-height: 1.6;">
             <p>Data suggests that a higher share of the female population has an anxiety disorder compared to males. However, data also shows that the share of the male population with anxiety is not significantly less than that of females. In the United States during the past decade, the percentage of males with anxiety has been around two-thirds of that of females, representing tens of millions of individuals.</p>
@@ -157,7 +157,7 @@
         </div> -->
 
         <div style="display: flex; justify-content: center; margin-top: 20px;">
-            <input bind:value={countryInput} style="" type="text" class="form-control" placeholder="Search for a country..."/>
+            <input bind:value={countryInput} style="" type="text" class="form-control" placeholder="Search for a country/region..."/>
             {#if countrySuggestions.length}
                 <ul class="suggestions-list" style="margin-top: 42px; margin-left: -30%">
                     {#each countrySuggestions as suggestion}
