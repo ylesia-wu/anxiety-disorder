@@ -28,12 +28,14 @@
         country = countryInput;
         let lowerCaseCountry = country.toLowerCase();
         filteredData = genderData.filter((d) => d.entity.toLowerCase() === lowerCaseCountry);
+        countryInput = null;
+        countrySuggestions = [];
     }
 
     function selectCountry(selectedCountry) {
         countryInput = selectedCountry;
-        countrySuggestions = [];
         search(); // Trigger the search immediately upon selection
+        countrySuggestions = [];
     }
 
     const margin = {top: 90, right: 700, bottom: 180, left: 100};
@@ -93,9 +95,6 @@
 
 <main style="display: flex; margin-top: 5%;">
 
-   
-
-    
     <svg {width}{height}>
         
         <g class='points'>
@@ -157,9 +156,9 @@
         </div> -->
 
         <div style="display: flex; justify-content: center; margin-top: 20px;">
-            <input bind:value={countryInput} type="text" class="form-control" placeholder="Search for a country..." />
+            <input bind:value={countryInput} style="" type="text" class="form-control" placeholder="Search for a country..." />
             {#if countrySuggestions.length}
-                <ul class="suggestions-list" style="margin-top: 42px; width:auto">
+                <ul class="suggestions-list" style="margin-top: 42px;">
                     {#each countrySuggestions as suggestion}
                         <li on:click={() => selectCountry(suggestion)}>{suggestion}</li>
                     {/each}
